@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2015
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroForge_Combat.CSharp", "HeroForge_Combat.CSharp.csproj", "{C2121149-A4D9-1E7A-BD70-55EF3F12F9B1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeroForge_Combat.CSharp.Editor", "HeroForge_Combat.CSharp.Editor.csproj", "{761AA55E-9018-34F8-A3F3-3534D06B0277}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C2121149-A4D9-1E7A-BD70-55EF3F12F9B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2121149-A4D9-1E7A-BD70-55EF3F12F9B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2121149-A4D9-1E7A-BD70-55EF3F12F9B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2121149-A4D9-1E7A-BD70-55EF3F12F9B1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{761AA55E-9018-34F8-A3F3-3534D06B0277}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{761AA55E-9018-34F8-A3F3-3534D06B0277}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{761AA55E-9018-34F8-A3F3-3534D06B0277}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{761AA55E-9018-34F8-A3F3-3534D06B0277}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
