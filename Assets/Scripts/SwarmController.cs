@@ -1,15 +1,25 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class SwarmController : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public APawn[] pawns;
+    List<APawn> menacingEnemies;
+
+    public APawn[] GetAllEnemies()
+    {
+        return pawns;
+    }
+
+    public List<APawn> GetMenacingEnemies()
+    {
+        menacingEnemies.Clear();
+        return menacingEnemies;
+    }
+
+    public APawn GetClosestEnemies(List<APawn> menacingEnemies)
+    {
+        return menacingEnemies[0];
+    }
 }

@@ -3,13 +3,4 @@ using System.Collections;
 
 public class PawnAI : APawn {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
 }

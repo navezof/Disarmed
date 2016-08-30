@@ -3,13 +3,8 @@ using System.Collections;
 
 public class DashComponent : AComponent {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
-	// Update is called once per frame
-	void Update () {
-	
-	}
+    public void Dash(APawn target)
+    {
+        print("dash on " + target.name);
+    }
 }

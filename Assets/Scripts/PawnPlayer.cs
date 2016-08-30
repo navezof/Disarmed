@@ -7,9 +7,13 @@ public class PawnPlayer : APawn {
     AttackComponent attack;
     DodgeComponent dodge;
 
-	protected override void Start()
+    public DashComponent GetDash() { return dash; }
+    public AttackComponent GetAttack() { return attack; }
+    public DodgeComponent GetDodge() { return dodge; }
+
+    protected void Start()
     {
-        base.Start();
+        controller = GetComponent<PlayerController>();
 
         dash = GetComponent<DashComponent>();
         attack = GetComponent<AttackComponent>();

@@ -77,6 +77,7 @@
     <Compile Include="Assets\Scripts\ComboComponent.cs" />
     <Compile Include="Assets\Scripts\DashComponent.cs" />
     <Compile Include="Assets\Scripts\DodgeComponent.cs" />
+    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthComponent.cs" />
     <Compile Include="Assets\Scripts\PawnAI.cs" />
     <Compile Include="Assets\Scripts\PawnPlayer.cs" />
