@@ -12,6 +12,8 @@ public class AttackComponent : AComponent {
     public float midRange = 3.51f;
     public float longRange = 6f;
 
+    public int attackDamage;
+
     public void Attack(APawn newTarget)
     {
         if (newTarget == null)
@@ -42,6 +44,7 @@ public class AttackComponent : AComponent {
     void StrikePoint()
     {
         print("Strike");
+        target.GetHealth().TakeDamage(attackDamage);
     }
 
     void KnockDownStrikePoint()

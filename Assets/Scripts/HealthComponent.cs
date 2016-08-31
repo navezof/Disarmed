@@ -11,6 +11,7 @@ public class HealthComponent : AComponent {
 
     bool isDead;
     bool bDamaged;
+    bool bKnockedDown;
 
     protected override void Start()
     {
@@ -23,6 +24,9 @@ public class HealthComponent : AComponent {
     public void TakeDamage(int damageTaken)
     {
         // Combo interuption
+        if (isDead || bKnockedDown)
+            return;
+
         bDamaged = true;
         pawn.GetAnimator().Play("TakeDamage");
         currentHealth -= damageTaken;
@@ -41,5 +45,6 @@ public class HealthComponent : AComponent {
     public void Die()
     {
         pawn.GetAnimator().Play("Die");
+        isDead = true;
     }
 }
