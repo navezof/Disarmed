@@ -50,6 +50,8 @@ public class AttackComponent : AComponent {
     void KnockDownStrikePoint()
     {
         print("KnockDown");
+        target.GetHealth().TakeDamage(attackDamage);
+        target.GetHealth().KnockedDown();
         currentAttackIndex = 0;
         pawn.controller.ResetNextInput();
     }

@@ -9,6 +9,8 @@ public class HealthComponent : AComponent {
     public int maxHealth;
     public int currentHealth;
 
+    public float knockedDownDuration;
+
     bool isDead;
     bool bDamaged;
     bool bKnockedDown;
@@ -41,6 +43,23 @@ public class HealthComponent : AComponent {
             Die();
         }
     }
+
+    public void KnockedDown()
+    {
+        pawn.GetAnimator().Play("KnockedDown");
+        bKnockedDown = true;
+        Invoke("GetUp", knockedDownDuration);
+    }
+
+    void GetUp()
+    {
+        pawn.GetAnimator().SetTrigger("trigger_getUp");
+    }
+
+    void KnockDownOver()
+    {
+        bKnockedDown = false;
+    }    
 
     public void Die()
     {
