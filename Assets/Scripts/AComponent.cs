@@ -5,7 +5,7 @@ public abstract class AComponent : MonoBehaviour {
 
     protected APawn pawn;
 
-    protected void Start()
+    protected virtual void Start()
     {
         pawn = GetComponent<APawn>();
     }

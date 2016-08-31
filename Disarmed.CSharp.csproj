@@ -58,12 +58,6 @@
     <Reference Include="UnityEngine.Networking">
       <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
     </Reference>
-    <Reference Include="UnityEngine.Networking">
-      <HintPath>Library\UnityAssemblies\UnityEngine.Networking.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEngine.UI">
-      <HintPath>Library\UnityAssemblies\UnityEngine.UI.dll</HintPath>
-    </Reference>
     <Reference Include="UnityEditor">
       <HintPath>Library\UnityAssemblies\UnityEditor.dll</HintPath>
     </Reference>
@@ -76,9 +70,11 @@
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ComboComponent.cs" />
     <Compile Include="Assets\Scripts\DashComponent.cs" />
+    <Compile Include="Assets\Scripts\Debug.cs" />
     <Compile Include="Assets\Scripts\DodgeComponent.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthComponent.cs" />
+    <Compile Include="Assets\Scripts\HealthUI.cs" />
     <Compile Include="Assets\Scripts\PawnAI.cs" />
     <Compile Include="Assets\Scripts\PawnPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
