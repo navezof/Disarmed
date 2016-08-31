@@ -14,6 +14,7 @@ public class PawnPlayer : APawn {
     protected void Start()
     {
         controller = GetComponent<PlayerController>();
+        controller.Possess(this);
 
         dash = GetComponent<DashComponent>();
         attack = GetComponent<AttackComponent>();

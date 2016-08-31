@@ -58,7 +58,7 @@ public class PlayerController : AController {
 
     APawn FindTarget()
     {        
-        return GameManager.Instance.GetSwarmController().GetAllEnemies()[0];
+        return SwarmController.GetSwarmController().GetAllEnemies()[0];
     }
 
     bool IsSwipe()
@@ -82,7 +82,7 @@ public class PlayerController : AController {
 
     void StoreInput(EInput newInput)
     {
-        if (bOpenBuffer)
+        if (bOpenBuffer || nextInput == EInput.NONE)
         {
             nextInput = newInput;
         }

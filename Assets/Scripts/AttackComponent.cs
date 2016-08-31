@@ -3,8 +3,14 @@ using System.Collections;
 
 public class AttackComponent : AComponent {
 
-    public void Attack(APawn target)
+    APawn target;
+
+    public void Attack(APawn newTarget)
     {
+        if (newTarget == null)
+        {
+            target = SwarmController.GetSwarmController().GetClosestEnemies(pawn);
+        }
         print("Attack on " + target.name);
     }
 }
