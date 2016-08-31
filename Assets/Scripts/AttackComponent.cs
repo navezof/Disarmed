@@ -15,12 +15,9 @@ public class AttackComponent : AComponent {
     public void Attack(APawn newTarget)
     {
         if (newTarget == null)
-        {
             target = SwarmController.GetSwarmController().GetClosestEnemies(pawn);
-        }
 
         print("Attack on " + target.name);
-        //pawn.GetAnimator().Play("Atk_melee_0" + cAttackIndex, 0);
         pawn.GetAnimator().SetInteger("cAttackIndex", currentAttackIndex);
         pawn.GetAnimator().SetInteger("cRange", GetRange());
         pawn.GetAnimator().SetTrigger("Attack");
@@ -32,14 +29,13 @@ public class AttackComponent : AComponent {
 
     int GetRange()
     {
-        /*
         float distanceCharacterEnemy = Vector3.Distance(transform.position, target.transform.position);
         if (distanceCharacterEnemy <= closeRange)
             return 0;
         if (distanceCharacterEnemy > closeRange && distanceCharacterEnemy <= midRange)
             return 1;
         if (distanceCharacterEnemy > midRange && distanceCharacterEnemy <= longRange)
-            return 2;*/
+            return 2;
         return 0;
     }
 
@@ -61,7 +57,6 @@ public class AttackComponent : AComponent {
 
     void EndAttack()
     {
-        print("END");
         if (pawn.controller.nextInput == PlayerController.EInput.NONE)
             currentAttackIndex = 0;
     }
