@@ -11,8 +11,10 @@ public class PawnPlayer : APawn {
     public AttackComponent GetAttack() { return attack; }
     public DodgeComponent GetDodge() { return dodge; }
 
-    protected void Start()
+    protected override void Start()
     {
+        base.Start();
+            
         controller = GetComponent<PlayerController>();
         controller.Possess(this);
 

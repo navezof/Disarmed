@@ -108,4 +108,13 @@ public class PlayerController : AController {
         nextInput = EInput.NONE;
     }
 
+    void OpenBuffer()
+    {
+        bOpenBuffer = true;
+    }
+
+    void CloseBuffer()
+    {
+        bOpenBuffer = false;
+    }
 }

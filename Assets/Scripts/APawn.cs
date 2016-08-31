@@ -8,6 +8,8 @@ public abstract class APawn : MonoBehaviour {
 
     protected Animator animator;
 
+    public Animator GetAnimator() { return animator; }
+
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
