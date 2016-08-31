@@ -18,8 +18,13 @@ public class AttackComponent : AComponent {
     {
         if (newTarget == null)
             target = SwarmController.GetSwarmController().GetClosestEnemies(pawn);
+        else
+            target = newTarget;
 
         print("Attack on " + target.name);
+
+        transform.LookAt(target.transform);
+
         pawn.GetAnimator().SetInteger("cAttackIndex", currentAttackIndex);
         pawn.GetAnimator().SetInteger("cRange", GetRange());
         pawn.GetAnimator().SetTrigger("Attack");

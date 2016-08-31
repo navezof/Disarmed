@@ -11,12 +11,14 @@ public class PlayerController : AController {
     public float minSwipeInputLength;
     Vector3 swipeStart;
     Vector3 swipeEnd;
-    APawn target;
+    PawnAI target;
 
     /**
      * Next input variables
      */
     bool bOpenBuffer;
+
+    public PawnAI GetTarget() { return target; }
 
     public override void Possess(APawn pawnPlayer)
     {
@@ -34,8 +36,8 @@ public class PlayerController : AController {
             swipeEnd = Input.mousePosition;
             if (IsSwipe())
             {
-                StoreInput(EInput.DASH);
                 target = pawn.GetDash().FindTarget(transform.position, swipeEnd);
+                StoreInput(EInput.DASH);
             }
             else
             {

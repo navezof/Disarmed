@@ -11,9 +11,11 @@ public class HealthComponent : AComponent {
 
     public float knockedDownDuration;
 
-    bool isDead;
-    bool bDamaged;
+    bool bDead;
     bool bKnockedDown;
+
+    public bool IsDead() { return bDead; }
+    public bool IsKnockedDown() { return bKnockedDown; }
 
     protected override void Start()
     {
@@ -26,10 +28,9 @@ public class HealthComponent : AComponent {
     public void TakeDamage(int damageTaken)
     {
         // Combo interuption
-        if (isDead || bKnockedDown)
+        if (bDead || bKnockedDown)
             return;
 
-        bDamaged = true;
         pawn.GetAnimator().Play("TakeDamage");
         currentHealth -= damageTaken;
         if (healthUI)
@@ -38,7 +39,7 @@ public class HealthComponent : AComponent {
             healthUI.SetSlider(maxHealth - currentHealth);
         }
 
-        if (currentHealth <= 0 && !isDead)
+        if (currentHealth <= 0 && !bDead)
         {
             Die();
         }
@@ -64,6 +65,6 @@ public class HealthComponent : AComponent {
     public void Die()
     {
         pawn.GetAnimator().Play("Die");
-        isDead = true;
+        bDead = true;
     }
 }
