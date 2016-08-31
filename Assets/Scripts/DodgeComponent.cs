@@ -16,5 +16,6 @@ public class DodgeComponent : AComponent {
     void EndAnim()
     {
         bDodging = false;
+        pawn.controller.nextInput = AController.EInput.NONE;
     }
 }

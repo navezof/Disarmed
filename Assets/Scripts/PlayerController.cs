@@ -17,14 +17,6 @@ public class PlayerController : AController {
      * Next input variables
      */
     bool bOpenBuffer;
-    EInput nextInput;
-    enum EInput
-    {
-        NONE,
-        ATTACK,
-        DODGE,
-        DASH
-    }
 
     public override void Possess(APawn pawnPlayer)
     {
@@ -43,22 +35,13 @@ public class PlayerController : AController {
             if (IsSwipe())
             {
                 StoreInput(EInput.DASH);
-                target = FindTarget();
+                target = pawn.GetDash().FindTarget(transform.position, swipeEnd);
             }
             else
             {
                 TouchInput(swipeEnd);
             }
         }
-        if (!bOpenBuffer && nextInput != EInput.NONE)
-        {
-            ExecuteInput();
-        }
-    }
-
-    APawn FindTarget()
-    {        
-        return SwarmController.GetSwarmController().GetAllEnemies()[0];
     }
 
     bool IsSwipe()
@@ -82,10 +65,15 @@ public class PlayerController : AController {
 
     void StoreInput(EInput newInput)
     {
-        if (bOpenBuffer || nextInput == EInput.NONE)
+        if (bOpenBuffer)
         {
             nextInput = newInput;
         }
+        else if (nextInput == EInput.NONE)
+        {
+            nextInput = newInput;
+            ExecuteInput();
+        }        
     }
 
     void ExecuteInput()
@@ -101,20 +89,24 @@ public class PlayerController : AController {
             case EInput.DASH:
                 pawn.GetDash().Dash(target);
                 break;
+            case EInput.NONE:
+                break;
             default:
                 print("Input unknown");
                 break;
         }
-        nextInput = EInput.NONE;
     }
 
     void OpenBuffer()
     {
         bOpenBuffer = true;
+        nextInput = EInput.NONE;
     }
 
     void CloseBuffer()
     {
         bOpenBuffer = false;
+        if (nextInput != EInput.NONE)
+            ExecuteInput();
     }
 }

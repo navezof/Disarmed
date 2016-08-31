@@ -7,4 +7,9 @@ public class DashComponent : AComponent {
     {
         print("dash on " + target.name);
     }
+
+    public APawn FindTarget(Vector3 playerPosition, Vector3 swipeEnd)
+    {
+        return SwarmController.GetSwarmController().GetAllEnemies()[0];
+    }
 }
