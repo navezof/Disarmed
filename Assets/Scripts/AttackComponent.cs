@@ -6,7 +6,7 @@ public class AttackComponent : AComponent {
     APawn target;
 
     public int currentAttackIndex = 0;
-    int maxAttackIndex = 3;
+    public int maxAttackIndex = 3;
 
     public float closeRange = 2.12f;
     public float midRange = 3.51f;
