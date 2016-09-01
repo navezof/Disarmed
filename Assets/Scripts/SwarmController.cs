@@ -11,11 +11,16 @@ public class SwarmController : MonoBehaviour {
     }
 
     public APawn[] pawns;
-    List<APawn> menacingEnemies;
+    public PawnPlayer player;
 
     void Awake()
     {
         swarmController = this;
+    }
+
+    void Start()
+    {
+        player = GameObject.Find("PLAYER").GetComponent<PawnPlayer>();
     }
 
     public APawn[] GetAllEnemies()
@@ -23,10 +28,9 @@ public class SwarmController : MonoBehaviour {
         return pawns;
     }
 
-    public List<APawn> GetMenacingEnemies()
+    public PawnPlayer GetPlayer()
     {
-        menacingEnemies.Clear();
-        return menacingEnemies;
+        return player;
     }
 
     public APawn GetClosestEnemies(List<APawn> menacingEnemies)

@@ -65,19 +65,30 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\AComponent.cs" />
     <Compile Include="Assets\Scripts\AController.cs" />
+    <Compile Include="Assets\Scripts\ADecorator.cs" />
+    <Compile Include="Assets\Scripts\AIController.cs" />
+    <Compile Include="Assets\Scripts\ALeaf.cs" />
+    <Compile Include="Assets\Scripts\ANode.cs" />
     <Compile Include="Assets\Scripts\APawn.cs" />
     <Compile Include="Assets\Scripts\AttackComponent.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\ComboComponent.cs" />
     <Compile Include="Assets\Scripts\DashComponent.cs" />
     <Compile Include="Assets\Scripts\Debug.cs" />
+    <Compile Include="Assets\Scripts\Dec_HasToken.cs" />
+    <Compile Include="Assets\Scripts\Dec_IsCloseToPlayer.cs" />
+    <Compile Include="Assets\Scripts\Dec_IsStatus.cs" />
     <Compile Include="Assets\Scripts\DodgeComponent.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthComponent.cs" />
     <Compile Include="Assets\Scripts\HealthUI.cs" />
+    <Compile Include="Assets\Scripts\Lef_Attack.cs" />
+    <Compile Include="Assets\Scripts\Lef_Move.cs" />
     <Compile Include="Assets\Scripts\PawnAI.cs" />
     <Compile Include="Assets\Scripts\PawnPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\Selector.cs" />
+    <Compile Include="Assets\Scripts\Sequence.cs" />
     <Compile Include="Assets\Scripts\SwarmController.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
