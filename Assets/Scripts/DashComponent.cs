@@ -15,7 +15,6 @@ public class DashComponent : AComponent {
     PawnAI currentTarget;
 
     public float attackDistance;
-    bool bClose;
 
     void Update()
     {
@@ -41,13 +40,13 @@ public class DashComponent : AComponent {
             return;
         }
         currentTarget = target;
-        bClose = false;
         print("dash on " + target.name);
     }
 
     void EndDash()
     {
         pawn.controller.ResetNextInput();
+        currentTarget = null;
     }
 
     public PawnAI FindTarget(Vector3 playerPosition, Vector3 swipeEnd)
