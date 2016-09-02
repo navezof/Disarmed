@@ -84,6 +84,7 @@
     <Compile Include="Assets\Scripts\HealthUI.cs" />
     <Compile Include="Assets\Scripts\Lef_Attack.cs" />
     <Compile Include="Assets\Scripts\Lef_Move.cs" />
+    <Compile Include="Assets\Scripts\MoveComponent.cs" />
     <Compile Include="Assets\Scripts\PawnAI.cs" />
     <Compile Include="Assets\Scripts\PawnPlayer.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
