@@ -8,7 +8,6 @@ public class Dec_IsStatus : ADecorator
 
     public override bool Try()
     {
-        print("Try : " + name);
         if (controller.GetPawn().GetStatus() != status)
             return bInvert ? true : false;
         return bInvert ? false : true;

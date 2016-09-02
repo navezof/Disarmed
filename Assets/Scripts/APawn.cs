@@ -9,15 +9,18 @@ public abstract class APawn : MonoBehaviour {
     protected Animator animator;
     protected HealthComponent health;
     protected AttackComponent attack;
+    protected DodgeComponent dodge;
 
     public Animator GetAnimator() { return animator; }
     public HealthComponent GetHealth() { return health; }
     public AttackComponent GetAttack() { return attack; }
+    public DodgeComponent GetDodge() { return dodge; }
 
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
         health = GetComponent<HealthComponent>();
         attack = GetComponent<AttackComponent>();
+        dodge = GetComponent<DodgeComponent>();
     }
 }

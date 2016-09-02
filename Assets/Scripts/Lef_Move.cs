@@ -7,6 +7,5 @@ public class Lef_Move : ALeaf {
 
     public override void Run()
     {
-        print("move");
     }
 }

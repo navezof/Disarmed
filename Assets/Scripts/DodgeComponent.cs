@@ -3,14 +3,20 @@ using System.Collections;
 
 public class DodgeComponent : AComponent {
 
-    bool bDodging;
-    public bool GetDodging() { return bDodging; }
+    public bool bDodging;
+    public bool IsDodging() { return bDodging; }
+
+    bool canDodge;
+    public void SetCanDodge(bool value) { canDodge = value; }
 
     public void Dodge()
     {
-        print("Dodge");
-        pawn.GetAnimator().Play("Dodge");            
-        bDodging = true;
+        pawn.GetAnimator().Play("Dodge");
+        if (canDodge)
+        {
+            print("Dodge");
+            bDodging = true;
+        }
     }
 
     void EndAnim()

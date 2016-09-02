@@ -49,6 +49,14 @@ public class AttackComponent : AComponent {
     void StrikePoint()
     {
         print("Strike");
+        if (target.GetDodge() != null)
+        {
+            if (target.GetDodge().IsDodging())
+            {
+                print("Dodged!");
+                return;
+            }
+        }
         target.GetHealth().TakeDamage(attackDamage);
     }
 
@@ -74,5 +82,17 @@ public class AttackComponent : AComponent {
     public void SetAttackIndex(int attackIndex)
     {
         currentAttackIndex = attackIndex;
+    }
+
+    void OpenParry()
+    {
+        if (target.GetDodge() != null)
+            target.GetDodge().SetCanDodge(true);
+    }
+
+    void CloseParry()
+    {
+        if (target.GetDodge() != null)
+            target.GetDodge().SetCanDodge(false);
     }
 }
