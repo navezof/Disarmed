@@ -6,17 +6,9 @@ public class PawnAI : APawn {
     float threat;
     public float GetThreat() { return threat; }
 
-    EStatus status;
-    public EStatus GetStatus() { return status; }
+    public int priorityLevel;
+    public bool bHasAttacked;
 
-    public enum EStatus
-    {
-        IDLE,
-        MOVING,
-        ATTACKING,
-        KNOCKEDDOWN,
-        DEAD
-    }
 
     protected override void Start()
     {
@@ -24,5 +16,10 @@ public class PawnAI : APawn {
 
         controller = GetComponent<AIController>();
         controller.Possess(this);
+    }
+
+    public AIController GetController()
+    {
+        return controller as AIController;
     }
 }

@@ -18,11 +18,17 @@ public class AIController : AController
 
     void Update()
     {
-        behaviourTreeRoot.Run();
+        if (!pawn.GetHealth().IsDead())
+            behaviourTreeRoot.Run();
     }
 
     public PawnAI GetPawn()
     {
         return pawn;
+    }
+
+    public void TakeToken()
+    {
+        bToken = true;
     }
 }

@@ -18,6 +18,19 @@ public abstract class APawn : MonoBehaviour {
     public DodgeComponent GetDodge() { return dodge; }
     public MoveComponent GetMove() { return move; }
 
+    public enum EStatus
+    {
+        IDLE,
+        MOVING,
+        ATTACKING,
+        KNOCKEDDOWN,
+        DEAD
+    }
+
+    public EStatus status;
+    public EStatus GetStatus() { return status; }
+    public void SetStatus(EStatus value) { status = value; }
+
     protected virtual void Start()
     {
         animator = GetComponent<Animator>();
