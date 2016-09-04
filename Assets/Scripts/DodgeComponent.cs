@@ -6,7 +6,7 @@ public class DodgeComponent : AComponent {
     public bool bDodging;
     public bool IsDodging() { return bDodging; }
 
-    bool canDodge;
+    public bool canDodge;
     public void SetCanDodge(bool value) { canDodge = value; }
 
     public void Dodge()
@@ -16,6 +16,14 @@ public class DodgeComponent : AComponent {
         {
             print("Dodge");
             bDodging = true;
+        }
+        else
+        {
+            if (pawn is PawnPlayer)
+            {
+                PawnPlayer pawnPlayer = pawn as PawnPlayer;
+                pawnPlayer.GetCombo().ResetCombo();
+            }
         }
     }
 

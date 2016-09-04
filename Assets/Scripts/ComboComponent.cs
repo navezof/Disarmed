@@ -7,10 +7,17 @@ public class ComboComponent : MonoBehaviour {
     public Text comboText;
     public int comboScore;
 
+    public Slider comboResetSlider;
     public float comboResetTime;
 
     float lastComboTime;
-    	
+
+    void Start()
+    {
+        comboResetSlider.maxValue = comboResetTime;
+        lastComboTime = Time.time;
+    }
+
 	// Update is called once per frame
 	void Update ()
     {
@@ -18,12 +25,17 @@ public class ComboComponent : MonoBehaviour {
         {
             ResetCombo();
         }
+        else
+        {
+            comboResetSlider.value = Time.time - lastComboTime;
+        }
     }
 
     public void ResetCombo()
     {
         comboScore = 0;
         comboText.text = "Combo : " + comboScore;
+        comboResetSlider.value = 0;
     }
 
     public void AddCombo(int value)
