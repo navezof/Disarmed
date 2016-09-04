@@ -1,15 +1,34 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class ComboComponent : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
-	
-	}
-	
+    public Text comboText;
+    public int comboScore;
+
+    public float comboResetTime;
+
+    float lastComboTime;
+    	
 	// Update is called once per frame
-	void Update () {
-	
-	}
+	void Update ()
+    {
+	    if (Time.time - lastComboTime > comboResetTime)
+        {
+            ResetCombo();
+        }
+    }
+
+    public void ResetCombo()
+    {
+        comboScore = 0;
+    }
+
+    void AddCombo()
+    {
+        lastComboTime = Time.time;
+        comboScore += 1;
+        comboText.text = "Combo : " + comboScore;
+    }
 }
