@@ -4,10 +4,10 @@ using System.Collections;
 public class PawnPlayer : APawn {
 
     DashComponent dash;
-    DodgeComponent dodge;
+    //DodgeComponent dodge;
 
     public DashComponent GetDash() { return dash; }
-    public DodgeComponent GetDodge() { return dodge; }
+    //public DodgeComponent GetDodge() { return dodge; }
 
     protected override void Start()
     {
@@ -18,6 +18,6 @@ public class PawnPlayer : APawn {
 
         dash = GetComponent<DashComponent>();
         attack = GetComponent<AttackComponent>();
-        dodge = GetComponent<DodgeComponent>();
+        //dodge = GetComponent<DodgeComponent>();
 	}
 }

@@ -47,6 +47,8 @@ public class HealthComponent : AComponent {
 
     public void KnockedDown()
     {
+        if (pawn.GetHealth().IsDead())
+            return;
         pawn.GetAnimator().Play("KnockedDown");
         bKnockedDown = true;
         Invoke("GetUp", knockedDownDuration);
