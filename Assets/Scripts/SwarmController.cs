@@ -2,15 +2,23 @@
 using System.Collections;
 using System.Collections.Generic;
 
+/**
+ * Has information and function on all the enemies in the level
+ * 
+ */
 public class SwarmController : MonoBehaviour {
 
+    // Global access to the class
     static SwarmController swarmController;
     public static SwarmController GetSwarmController()
     {
         return swarmController;
     }
 
-    public APawn[] pawns;
+    // List of all the enemies, in order to have a better control, those pawns have to be added manually in the editor
+    public APawn[] enemies;
+
+    // Player pawn
     public PawnPlayer player;
 
     void Awake()
@@ -25,7 +33,7 @@ public class SwarmController : MonoBehaviour {
 
     public APawn[] GetAllEnemies()
     {
-        return pawns;
+        return enemies;
     }
 
     public PawnPlayer GetPlayer()
@@ -33,15 +41,10 @@ public class SwarmController : MonoBehaviour {
         return player;
     }
 
-    public APawn GetClosestEnemies(List<APawn> menacingEnemies)
+    public APawn GetClosestEnemy(APawn player)
     {
-        return menacingEnemies[0];
-    }
-
-    public APawn GetClosestEnemies(APawn player)
-    {
-        APawn bestTarget = pawns[0];
-        foreach (APawn pawn in pawns)
+        APawn bestTarget = enemies[0];
+        foreach (APawn pawn in enemies)
         {
             if (Vector3.Distance(pawn.transform.position, player.transform.position) < Vector3.Distance(bestTarget.transform.position, player.transform.position))
             {

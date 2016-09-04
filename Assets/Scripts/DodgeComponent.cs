@@ -1,6 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Dodge functions
+ * 
+ */
 public class DodgeComponent : AComponent {
 
     public bool bDodging;
@@ -14,11 +18,11 @@ public class DodgeComponent : AComponent {
         pawn.GetAnimator().Play("Dodge");
         if (canDodge)
         {
-            print("Dodge");
             bDodging = true;
         }
         else
         {
+            // If the pawn is a player and he failed its dodge, the combo is reset
             if (pawn is PawnPlayer)
             {
                 PawnPlayer pawnPlayer = pawn as PawnPlayer;

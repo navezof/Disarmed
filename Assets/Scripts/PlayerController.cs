@@ -1,8 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Player specific controller class
+ * 
+ * Record the input and execute the appropriate action
+ * 
+ */
 public class PlayerController : AController {
 
+    // Pawn possessed by this controller
     PawnPlayer pawn;
 
     /**
@@ -13,12 +20,12 @@ public class PlayerController : AController {
     Vector3 swipeEnd;
     PawnAI target;
 
+    public PawnAI GetTarget() { return target; }
+
     /**
      * Next input variables
      */
     bool bOpenBuffer;
-
-    public PawnAI GetTarget() { return target; }
 
     public override void Possess(APawn pawnPlayer)
     {

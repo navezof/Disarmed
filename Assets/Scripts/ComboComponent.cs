@@ -2,6 +2,10 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/**
+ * Combo functions
+ * 
+ */
 public class ComboComponent : MonoBehaviour {
 
     public Text comboText;
@@ -18,7 +22,6 @@ public class ComboComponent : MonoBehaviour {
         lastComboTime = Time.time;
     }
 
-	// Update is called once per frame
 	void Update ()
     {
 	    if (Time.time - lastComboTime > comboResetTime)
@@ -34,8 +37,8 @@ public class ComboComponent : MonoBehaviour {
     public void ResetCombo()
     {
         comboScore = 0;
-        comboText.text = "Combo : " + comboScore;
         comboResetSlider.value = 0;
+        comboText.text = "Combo : " + comboScore;
     }
 
     public void AddCombo(int value)

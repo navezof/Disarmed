@@ -5,6 +5,7 @@ public class PawnAI : APawn {
 
     float threat;
     public float GetThreat() { return threat; }
+    public void SetThreat(float value) { threat = value; }
 
     EStatus status;
     public EStatus GetStatus() { return status; }

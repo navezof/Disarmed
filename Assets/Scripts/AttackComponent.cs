@@ -18,7 +18,7 @@ public class AttackComponent : AComponent {
     public void Attack(APawn newTarget)
     {
         if (newTarget == null)
-            target = SwarmController.GetSwarmController().GetClosestEnemies(pawn);
+            target = SwarmController.GetSwarmController().GetClosestEnemy(pawn);
         else
             target = newTarget;
 
