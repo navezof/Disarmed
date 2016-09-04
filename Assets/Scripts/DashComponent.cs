@@ -128,9 +128,7 @@ public class DashComponent : AComponent {
     bool IsTargetable(PawnAI enemy)
     {
         if (enemy.GetHealth().IsDead() || enemy.GetHealth().IsKnockedDown() || enemy == currentTarget)
-        {
             return false;
-        }
         return true;
     }
 }
