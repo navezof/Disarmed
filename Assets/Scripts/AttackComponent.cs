@@ -13,6 +13,7 @@ public class AttackComponent : AComponent {
     public float longRange = 6f;
 
     public int attackDamage;
+    public int comboStrikeValue;
 
     public void Attack(APawn newTarget)
     {
@@ -56,6 +57,11 @@ public class AttackComponent : AComponent {
                 print("Dodged!");
                 return;
             }
+        }
+        if (pawn is PawnPlayer)
+        {
+            PawnPlayer pawnPlayer = pawn as PawnPlayer;
+            pawnPlayer.GetCombo().AddCombo(comboStrikeValue);
         }
         target.GetHealth().TakeDamage(attackDamage);
     }

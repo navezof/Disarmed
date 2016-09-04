@@ -23,12 +23,13 @@ public class ComboComponent : MonoBehaviour {
     public void ResetCombo()
     {
         comboScore = 0;
+        comboText.text = "Combo : " + comboScore;
     }
 
-    void AddCombo()
+    public void AddCombo(int value)
     {
         lastComboTime = Time.time;
-        comboScore += 1;
+        comboScore += value;
         comboText.text = "Combo : " + comboScore;
     }
 }

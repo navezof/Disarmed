@@ -4,9 +4,12 @@ using System.Collections;
 public class PawnPlayer : APawn {
 
     DashComponent dash;
+    ComboComponent combo;
+
     //DodgeComponent dodge;
 
     public DashComponent GetDash() { return dash; }
+    public ComboComponent GetCombo() { return combo; }
     //public DodgeComponent GetDodge() { return dodge; }
 
     protected override void Start()
@@ -17,7 +20,8 @@ public class PawnPlayer : APawn {
         controller.Possess(this);
 
         dash = GetComponent<DashComponent>();
-        attack = GetComponent<AttackComponent>();
+        combo = GetComponent<ComboComponent>();
+        //attack = GetComponent<AttackComponent>();
         //dodge = GetComponent<DodgeComponent>();
 	}
 }
