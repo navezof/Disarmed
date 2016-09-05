@@ -21,6 +21,7 @@ public class SwarmController : MonoBehaviour {
     // Player pawn
     public PawnPlayer player;
 
+    bool bToken = true;
     public float timeBetweenAttack;
 
     List<PawnAI> visibleAttackers = new List<PawnAI>();
@@ -35,11 +36,19 @@ public class SwarmController : MonoBehaviour {
 
     void GiveAttackToken()
     {
+        if (bToken == false)
+            return;
         if (GetNextAttacker() != null)
         {
             nextAttacker.GetController().TakeToken();
             nextAttacker = null;
+            bToken = false;
         }
+    }
+
+    public void TakeToken()
+    {
+        bToken = true;
     }
 
     PawnAI GetNextAttacker()
@@ -47,7 +56,6 @@ public class SwarmController : MonoBehaviour {
         visibleAttackers.Clear();
         foreach (PawnAI enemy in enemies)
         {
-
             {
                 visibleAttackers.Add(enemy);
             }

@@ -26,6 +26,7 @@ public class PlayerController : AController {
      * Next input variables
      */
     bool bOpenBuffer;
+    public void SetOpenBuffer(bool value) { bOpenBuffer = value; }
 
     public override void Possess(APawn pawnPlayer)
     {
@@ -117,5 +118,11 @@ public class PlayerController : AController {
         bOpenBuffer = false;
         if (nextInput != EInput.NONE)
             ExecuteInput();
+    }
+
+    public void Interupt()
+    {
+        nextInput = EInput.NONE;
+        bOpenBuffer = false;
     }
 }

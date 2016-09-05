@@ -19,7 +19,7 @@ public abstract class AController : MonoBehaviour {
 
     public void ResetNextInput()
     {
-        nextInput = EInput.NONE;
+        nextInput = EInput.NONE;        
     }
 
     // Set the pawn variable of the controller

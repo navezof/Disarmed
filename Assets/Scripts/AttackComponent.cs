@@ -33,6 +33,8 @@ public class AttackComponent : AComponent {
 
         print("Attack on " + target.name);
 
+        pawn.SetStatus(APawn.EStatus.ATTACKING);
+
         transform.LookAt(target.transform);
 
         pawn.GetAnimator().SetInteger("cAttackIndex", currentAttackIndex);
@@ -91,6 +93,9 @@ public class AttackComponent : AComponent {
     {
         if (pawn.controller.nextInput == PlayerController.EInput.NONE)
             currentAttackIndex = 0;
+        pawn.SetStatus(APawn.EStatus.IDLE);
+        if (pawn.controller is AIController)
+            SwarmController.GetSwarmController().TakeToken();
     }
 
     public void SetAttackIndex(int attackIndex)
