@@ -9,10 +9,5 @@ public abstract class ADecorator : MonoBehaviour {
 
     public abstract bool Try();
 
-    protected void Start()
-    {
-        controller = transform.root.GetComponent<AIController>();
-    }
-
     public void SetController(AIController newController) { controller = newController; }
 }

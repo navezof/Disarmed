@@ -11,7 +11,9 @@ public abstract class ANode : MonoBehaviour {
         ERROR
     }
 
-    protected AIController controller;
+    public AIController controller;
+    public void SetController(AIController value) { controller = value; }
+
     protected ADecorator[] decorators;
 
     public ANode[] childrens;
@@ -23,6 +25,10 @@ public abstract class ANode : MonoBehaviour {
         foreach (ADecorator decorator in decorators)
         {
             decorator.SetController(controller);
+        }
+        foreach (ANode child in childrens)
+        {
+            child.SetController(controller);
         }
 	}
 

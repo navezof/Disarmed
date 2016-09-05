@@ -8,6 +8,8 @@ public class Dec_TargetInRange : ADecorator {
 
     public override bool Try()
     {
+        if (controller == null)
+            return false;
         AttackComponent attack = controller.GetPawn().GetAttack();
         if (attack == null)
             return bInvert ? true : false;
