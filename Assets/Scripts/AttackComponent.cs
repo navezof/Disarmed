@@ -34,6 +34,11 @@ public class AttackComponent : AComponent {
         print("Attack on " + target.name);
 
         pawn.SetStatus(APawn.EStatus.ATTACKING);
+        if (pawn.controller is AIController)
+        {
+            PawnAI ai = pawn as PawnAI;
+            ai.AddThreat(1);
+        }
 
         transform.LookAt(target.transform);
 
@@ -95,7 +100,11 @@ public class AttackComponent : AComponent {
             currentAttackIndex = 0;
         pawn.SetStatus(APawn.EStatus.IDLE);
         if (pawn.controller is AIController)
-            SwarmController.GetSwarmController().TakeToken();
+        {
+            PawnAI ai = pawn as PawnAI;
+            ai.AddThreat(-1);
+            SwarmController.GetSwarmController().TakeToken();            
+        }
     }
 
     public void SetAttackIndex(int attackIndex)

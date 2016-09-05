@@ -23,7 +23,6 @@ public class DashComponent : AComponent {
         if (Vector3.Distance(transform.position, currentTarget.transform.position) <= attackDistance)
         {
             EndDash();
-            // Done dashing
         }
         else
         {
@@ -45,6 +44,7 @@ public class DashComponent : AComponent {
 
     void EndDash()
     {
+        pawn.GetAttack().Attack(currentTarget);
         pawn.controller.ResetNextInput();
         currentTarget = null;
     }
@@ -69,17 +69,9 @@ public class DashComponent : AComponent {
                 Vector3 enemyVector = Camera.main.WorldToScreenPoint(enemy.transform.position) - Camera.main.WorldToScreenPoint(playerPosition);
                 float angle = Vector3.Angle(swipeVector, enemyVector);
                 float distance = Vector3.Distance(playerPosition, enemy.transform.position);
-                print("angle : " + angle);
-                print("distance : " + distance);
-
                 if (angle < targetingConeAngle / 2 && distance < targetingConeLength)
                 {
-                    print("Add enemy : " + enemy.name);
                     potentialTargets.Add(enemy);
-                }
-                else
-                {
-                    print("Didn't add enemy : " + enemy.name);
                 }
             }
         }

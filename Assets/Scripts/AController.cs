@@ -22,6 +22,11 @@ public abstract class AController : MonoBehaviour {
         nextInput = EInput.NONE;        
     }
 
+    public void SetNextInput(EInput value)
+    {
+        nextInput = value;
+    }
+
     // Set the pawn variable of the controller
     public abstract void Possess(APawn pawn);
 }
