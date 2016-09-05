@@ -5,11 +5,12 @@ public class Lef_Attack : ALeaf {
 
     public float threatValue;
 
-    public override void Run()
+    public override EState Run()
     {
         PawnAI aiPawn = controller.GetPawn() as PawnAI;
         controller.GetPawn().GetAttack().Attack(SwarmController.GetSwarmController().GetPlayer());
         controller.bToken = false;
         controller.GetPawn().bHasAttacked = true;
+        return EState.SUCCESS;
     }
 }

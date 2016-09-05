@@ -3,7 +3,16 @@ using System.Collections;
 
 public class AttackComponent : AComponent {
 
+    public enum EAttackRange
+    {
+        CLOSE,
+        MID,
+        LONG
+    }
+
     APawn target;
+    public APawn GetTarget() { return target; }
+    public void SetTarget(APawn value) { target = value; }
 
     public int currentAttackIndex = 0;
     public int maxAttackIndex = 3;
@@ -54,7 +63,6 @@ public class AttackComponent : AComponent {
         {
             if (target.GetDodge().IsDodging())
             {
-                print("Dodged!");
                 return;
             }
         }
@@ -100,5 +108,20 @@ public class AttackComponent : AComponent {
     {
         if (target.GetDodge() != null)
             target.GetDodge().SetCanDodge(false);
+    }
+
+    public float GetRange(EAttackRange range)
+    {
+        switch (range)
+        {
+            case EAttackRange.CLOSE:
+                return closeRange;
+            case EAttackRange.MID:
+                return midRange;
+            case EAttackRange.LONG:
+                return longRange;
+            default:
+                return -1;
+        }
     }
 }

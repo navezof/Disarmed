@@ -4,7 +4,5 @@ using System;
 
 public abstract class ALeaf : ANode {
 
-    public override void Run()
-    {
-    }
+    public abstract override EState Run();
 }

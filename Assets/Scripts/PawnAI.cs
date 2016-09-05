@@ -10,13 +10,14 @@ public class PawnAI : APawn {
     public int priorityLevel;
     public bool bHasAttacked;
 
-
     protected override void Start()
     {
         base.Start();
 
         controller = GetComponent<AIController>();
         controller.Possess(this);
+
+        attack.SetTarget(SwarmController.GetSwarmController().GetPlayer());
     }
 
     public AIController GetController()

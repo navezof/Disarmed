@@ -27,22 +27,16 @@ public class HealthComponent : AComponent {
 
     public void TakeDamage(int damageTaken)
     {
-        // Combo interuption
         if (bDead || bKnockedDown)
             return;
 
         pawn.GetAnimator().Play("TakeDamage");
         currentHealth -= damageTaken;
         if (healthUI)
-        {
-            healthUI.SetDamaged(true);
             healthUI.SetSlider(maxHealth - currentHealth);
-        }
 
         if (currentHealth <= 0 && !bDead)
-        {
             Die();
-        }
     }
 
     public void KnockedDown()

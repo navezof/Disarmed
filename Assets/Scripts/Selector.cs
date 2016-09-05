@@ -3,15 +3,18 @@ using System.Collections;
 
 public class Selector : ANode {
 
-    public override void Run()
+    public override EState Run()
     {
         foreach (ANode child in childrens)
         {
             if (child.Try() == true)
             {
-                child.Run();
-                return;
+                if (child.Run() == EState.SUCCESS)
+                    return EState.SUCCESS;
+                if (child.Run() == EState.RUNNING)
+                    return EState.RUNNING;
             }
         }
+        return EState.FAILURE;
     }
 }

@@ -3,6 +3,14 @@ using System.Collections;
 
 public abstract class ANode : MonoBehaviour {
 
+    public enum EState
+    {
+        SUCCESS,
+        FAILURE,
+        RUNNING,
+        ERROR
+    }
+
     protected AIController controller;
     protected ADecorator[] decorators;
 
@@ -28,5 +36,5 @@ public abstract class ANode : MonoBehaviour {
         return true;
     }
 
-    public abstract void Run();
+    public abstract EState Run();
 }

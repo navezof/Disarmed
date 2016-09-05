@@ -45,7 +45,7 @@ public class SwarmController : MonoBehaviour {
     PawnAI GetNextAttacker()
     {
         visibleAttackers.Clear();
-        foreach (PawnAI enemy in pawns)
+        foreach (PawnAI enemy in enemies)
         {
 
             {

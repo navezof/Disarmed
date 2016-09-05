@@ -4,10 +4,18 @@ using System.Collections;
 public class Lef_Move : ALeaf {
 
     public Transform target;
+    public float stoppingDistance;
 
-    public override void Run()
+    public override EState Run()
     {
-        controller.GetPawn().GetMove().MoveTo(target);
+        if (target == null)
+            return EState.ERROR;
+        if (Vector3.Distance(target.position, controller.transform.position) > stoppingDistance)
+        {
+            controller.GetPawn().GetMove().MoveTo(target);
+            return EState.RUNNING;
+        }
+        return EState.SUCCESS;
     }
 
     public void SetTarget(Transform newTarget)
