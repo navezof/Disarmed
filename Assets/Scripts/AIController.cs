@@ -19,7 +19,6 @@ public class AIController : AController
         pawn = pawnAI as PawnAI;
     }
 
-
     void Update()
     {
         if (Time.time - lastDecisionTick > decisionTick)

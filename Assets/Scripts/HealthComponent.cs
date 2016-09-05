@@ -30,7 +30,17 @@ public class HealthComponent : AComponent {
         if (bDead || bKnockedDown)
             return;
 
+        pawn.controller.ResetNextInput();
+
+        if (pawn is PawnPlayer)
+        {
+            PlayerController playerController = pawn.controller as PlayerController;
+            playerController.Interupt();
+        }
+
+        pawn.SetStatus(APawn.EStatus.IDLE);
         pawn.GetAnimator().Play("TakeDamage");
+
         currentHealth -= damageTaken;
         if (healthUI)
             healthUI.SetSlider(maxHealth - currentHealth);
