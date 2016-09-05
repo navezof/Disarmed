@@ -93,6 +93,7 @@
     <Compile Include="Assets\Scripts\Selector.cs" />
     <Compile Include="Assets\Scripts\Sequence.cs" />
     <Compile Include="Assets\Scripts\SwarmController.cs" />
+    <Compile Include="Assets\Scripts\TopDownCamera.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
