@@ -2,18 +2,26 @@
 using UnityEngine.UI;
 using System.Collections;
 
+/**
+ * Manage the health of a pawn
+ */
 public class HealthComponent : AComponent {
 
+    // Link to the UI (for the player)
     public HealthUI healthUI;
 
+    // Health variables
     public int maxHealth;
-    public int currentHealth;
+    int currentHealth;
 
+    // Duration of the knockedDownDuration
     public float knockedDownDuration;
 
+    // States of the character
     bool bDead;
     bool bKnockedDown;
 
+    // GETTERs
     public bool IsDead() { return bDead; }
     public bool IsKnockedDown() { return bKnockedDown; }
 
@@ -23,13 +31,19 @@ public class HealthComponent : AComponent {
 
         if (healthUI)
             healthUI.healthSlider.maxValue = maxHealth;
+        currentHealth = maxHealth;
     }
 
+    /**
+     * Main function of this class
+     */
     public void TakeDamage(int damageTaken)
     {
+        // If the character is dead or knockedDown, he is immune to damage
         if (bDead || bKnockedDown)
             return;
 
+        // Taking damage interupt any action or future action
         pawn.controller.ResetNextInput();
 
         if (pawn is PawnPlayer)

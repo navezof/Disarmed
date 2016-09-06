@@ -83,6 +83,7 @@
     <Compile Include="Assets\Scripts\Dec_HasToken.cs" />
     <Compile Include="Assets\Scripts\Dec_IsCloseToPlayer.cs" />
     <Compile Include="Assets\Scripts\Dec_IsStatus.cs" />
+    <Compile Include="Assets\Scripts\Dec_PlayerAlive.cs" />
     <Compile Include="Assets\Scripts\Dec_TargetInRange.cs" />
     <Compile Include="Assets\Scripts\DodgeComponent.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
