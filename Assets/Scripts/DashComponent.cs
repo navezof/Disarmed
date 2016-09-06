@@ -24,13 +24,16 @@ public class DashComponent : AComponent {
     // Target for the dash
     PawnAI currentTarget;
 
+    // If true the player is currently dashing
+    bool bDashing = false;
+
     // Distance of attack, the dash will stop when arriving at this distance from its target
     public float attackDistance;
 
     // During the update, we check first if a dash is currently going (currentTarget not null) then if the dash is ended or not
     void Update()
     {
-        if (currentTarget == null)
+        if (currentTarget == null || bDashing == false)
             return;
         if (Vector3.Distance(transform.position, currentTarget.transform.position) <= attackDistance)
         {
@@ -46,6 +49,7 @@ public class DashComponent : AComponent {
     // We set the target of the dash
     public void Dash(PawnAI target)
     {
+        bDashing = true;
         if (target == null)
         {
             EndDash();
@@ -59,7 +63,7 @@ public class DashComponent : AComponent {
     {
         pawn.GetAttack().Attack(currentTarget);
         pawn.controller.ResetNextInput();
-        currentTarget = null;
+        bDashing = false;
     }
 
     /*
