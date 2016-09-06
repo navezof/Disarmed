@@ -100,7 +100,6 @@ public class AttackComponent : AComponent {
         }
     }
 
-
     /**
      * Actual strike. Damage are dealt, dodge are tried and combo are increased
      */

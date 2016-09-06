@@ -19,6 +19,11 @@ public class DodgeComponent : AComponent {
         if (canDodge)
         {
             bDodging = true;
+            if (pawn is PawnPlayer)
+            {
+                PawnPlayer pawnPlayer = pawn as PawnPlayer;
+                pawnPlayer.GetCombo().AddCombo(1);
+            }
         }
         else
         {
