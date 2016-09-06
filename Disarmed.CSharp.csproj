@@ -86,12 +86,10 @@
     <Compile Include="Assets\Scripts\Dec_PlayerAlive.cs" />
     <Compile Include="Assets\Scripts\Dec_TargetInRange.cs" />
     <Compile Include="Assets\Scripts\DodgeComponent.cs" />
-    <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\HealthComponent.cs" />
     <Compile Include="Assets\Scripts\HealthUI.cs" />
     <Compile Include="Assets\Scripts\Lef_Attack.cs" />
     <Compile Include="Assets\Scripts\Lef_Move.cs" />
-    <Compile Include="Assets\Scripts\Lef_Wait.cs" />
     <Compile Include="Assets\Scripts\MoveComponent.cs" />
     <Compile Include="Assets\Scripts\PawnAI.cs" />
     <Compile Include="Assets\Scripts\PawnPlayer.cs" />

@@ -1,6 +1,9 @@
 ﻿using UnityEngine;
 using System.Collections;
 
+/**
+ * Debug class, used to quickly test some features
+ */
 public class Debug : MonoBehaviour {
 
     public PawnPlayer player;

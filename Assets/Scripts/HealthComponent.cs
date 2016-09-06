@@ -46,6 +46,7 @@ public class HealthComponent : AComponent {
         // Taking damage interupt any action or future action
         pawn.controller.ResetNextInput();
 
+        // Is the pawn is a player, extra interuption
         if (pawn is PawnPlayer)
         {
             PlayerController playerController = pawn.controller as PlayerController;
@@ -53,6 +54,7 @@ public class HealthComponent : AComponent {
         }
 
         pawn.SetStatus(APawn.EStatus.IDLE);
+        // We are directly calling a play on the animator rather than using a trigger or parameter
         pawn.GetAnimator().Play("TakeDamage");
 
         currentHealth -= damageTaken;
@@ -63,15 +65,23 @@ public class HealthComponent : AComponent {
             Die();
     }
 
+    /**
+     * When knockeddown a character is stuck in an animation until the end of the knockedDownDuration
+     * 
+     */
     public void KnockedDown()
     {
         if (pawn.GetHealth().IsDead())
             return;
         pawn.GetAnimator().Play("KnockedDown");
         bKnockedDown = true;
+        // As this function will not be called so often, a Invoke is used here
         Invoke("GetUp", knockedDownDuration);
     }
 
+    /**
+     * End the knockeddown animation
+     */
     void GetUp()
     {
         pawn.GetAnimator().SetTrigger("trigger_getUp");

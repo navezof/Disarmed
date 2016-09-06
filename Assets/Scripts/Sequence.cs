@@ -2,6 +2,11 @@
 using System.Collections;
 using System;
 
+/**
+ * The sequence is a form similar to the selector, but instead of returning success as soon as an action succeed, 
+ * all the children must return success for the sequence to be a success
+ * 
+ */
 public class Sequence : ANode
 {
     public override EState Run()
