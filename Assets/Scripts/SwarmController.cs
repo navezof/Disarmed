@@ -21,19 +21,30 @@ public class SwarmController : MonoBehaviour {
     // Player pawn
     public PawnPlayer player;
 
+    // The token is given to enemies, an enemy with a token will be able to attack
     bool bToken = true;
     public float timeBetweenAttack;
 
+    // List of attackers
     List<PawnAI> visibleAttackers = new List<PawnAI>();
     List<PawnAI> priorityAttackers = new List<PawnAI>();
+
+    // Next attacker who will receive the attack token
     PawnAI nextAttacker;
 
+    /*
+     * During the awake, we are Invoking the GiveAttackToken function, and set it to repeat every timeBetweenAttack seconds
+     */
     void Awake()
     {
         swarmController = this;
         InvokeRepeating("GiveAttackToken", timeBetweenAttack, timeBetweenAttack);
     }
 
+    /**
+     * Iteration through the attackers, and gift of attack token
+     * 
+     */
     void GiveAttackToken()
     {
         if (bToken == false)
@@ -46,6 +57,9 @@ public class SwarmController : MonoBehaviour {
         }
     }
 
+    /**
+     * Once a character did its attack, he will give back
+     */
     public void TakeToken()
     {
         bToken = true;
@@ -53,13 +67,14 @@ public class SwarmController : MonoBehaviour {
 
     PawnAI GetNextAttacker()
     {
+        // First, only the attackers visible in the camera are valid
         visibleAttackers.Clear();
         foreach (PawnAI enemy in enemies)
         {
-            {
+            if (IsVisibleOnCamera(enemy.transform))
                 visibleAttackers.Add(enemy);
-            }
         }
+        // Second, we sort enemies by their priority
         int bestPriorityLevel = 0;
         priorityAttackers.Clear();
         foreach (PawnAI visibleAttacker in visibleAttackers)
@@ -75,6 +90,7 @@ public class SwarmController : MonoBehaviour {
                 priorityAttackers.Add(visibleAttacker);
             }
         }
+        // Finaly, we check if the potential attacker has already attacked recently
         foreach (PawnAI potentialAttacker in priorityAttackers)
         {
             if (!potentialAttacker.bHasAttacked)
@@ -119,9 +135,7 @@ public class SwarmController : MonoBehaviour {
         foreach (APawn pawn in enemies)
         {
             if (Vector3.Distance(pawn.transform.position, player.transform.position) < Vector3.Distance(bestTarget.transform.position, player.transform.position))
-            {
                 bestTarget = pawn;
-            }
         }
         return bestTarget;
     }
