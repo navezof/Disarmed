@@ -2,6 +2,9 @@
 using System.Collections;
 using System;
 
+/**
+ * Check if the character has an attack token
+ */
 public class Dec_HasToken : ADecorator
 {
     public override bool Try()

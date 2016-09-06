@@ -2,6 +2,9 @@
 using System.Collections;
 using System;
 
+/**
+ * Check the status of the character
+ */
 public class Dec_IsStatus : ADecorator
 {
     public PawnAI.EStatus status;

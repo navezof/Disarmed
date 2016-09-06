@@ -8,9 +8,9 @@ using System.Collections;
 public class PawnAI : APawn {
 
     // Threat variable
-    float threat;
-    public float GetThreat() { return threat; }
-    public void AddThreat(float value) { threat += value; }
+    int threat;
+    public int GetThreat() { return threat; }
+    public void AddThreat(int value) { threat += value; }
 
     // Each enemy has a different priority for targeting
     public int priorityLevel;

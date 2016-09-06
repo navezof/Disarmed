@@ -2,6 +2,9 @@
 using System.Collections;
 using System;
 
+/**
+ * Check if the player is alive
+ */
 public class Dec_PlayerAlive : ADecorator
 {
     PawnPlayer player;

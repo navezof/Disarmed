@@ -2,6 +2,9 @@
 using System.Collections;
 using System;
 
+/**
+ * Check if the character is close to the player
+ */
 public class Dec_IsCloseToPlayer : ADecorator {
 
     public float distance;

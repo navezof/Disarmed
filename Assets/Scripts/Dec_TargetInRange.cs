@@ -2,6 +2,9 @@
 using System.Collections;
 using System;
 
+/**
+ * Check if the target is in range
+ */
 public class Dec_TargetInRange : ADecorator {
 
     public AttackComponent.EAttackRange range;
